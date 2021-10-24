@@ -30,6 +30,8 @@
  # run => npm install dotenv
         We install this package so that we can secure our passwords and use variables instead in the files.
         
+- a link to explain how to link mongoDb and node.js
+-        
 
 
 
