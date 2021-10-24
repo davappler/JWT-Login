@@ -1,0 +1,35 @@
+
+## Steps taken while setting up this project
+ - First thing is to install node
+ # run => npm init
+        Most developers run npm init right after creating and navigating into a new project. 
+        It makes sense to npm init at the start of the project because we use npm to download dependencies. 
+        Once we npm init , we can begin downloading (and saving) our dependencies
+
+ # run => npm install express 
+        Express 3.x is a light-weight web application framework to help organize 
+        your web application into an MVC architecture on the server side. 
+        You can use a variety of choices for your templating language (like EJS, Jade, and Dust.js).
+        You can then use a database like MongoDB with Mongoose (for modeling) to provide 
+        a backend for your Node.js application. Express.js basically helps you manage everything, 
+        from routes, to handling requests and views.
+
+        Redis is a key/value store -- commonly used for sessions and caching in Node.js applications. 
+        You can do a lot more with it, but that's what I'm using it for. 
+        I use MongoDB for more complex relationships, like line-item <-> order <-> user relationships. 
+        There are modules (most notably connect-redis) that will work with Express.js. 
+        You will need to install the Redis database on your server.
+    
+ # run => npm install --save-dev nodemon
+        Nodemon is a utility that will monitor for any changes in your source and 
+        automatically restart your server
+
+ - Then next step is to add a start in the package.json scripts sections and give it as "nodemon index.js" 
+ # run => npm install Mongoose
+        This will allow us to interact with MongoDB
+ # run => npm install dotenv
+        We install this package so that we can secure our passwords and use variables instead in the files.
+        
+
+
+
