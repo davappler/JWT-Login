@@ -33,6 +33,37 @@
 - a link to explain how to link mongoDb and node.js 
         https://buddy.works/tutorials/building-restful-apis-using-express-and-node-with-mongodb-atlas
     
+- run => npm install @hapi/joi
+        - used for Validating the information.
+        - Hapi Joi is an object schema description language and validator for JavaScript objects.
+        - With Hapi Joi, we create blueprints or schemas for JavaScript objects 
+          (an object that stores information) to ensure validation of key information.
+        - Hapi is a simple to use configuration-centric framework with built-in support 
+          for input validation, caching, authentication, and other essential facilities for building web and services applications. 
+
+- a link for hapi joi => https://zetcode.com/javascript/hapijoi/
 
 
+- Steps in the video did not work as they were old
+- see syntax below how to define the Joi object and how to validate
+- Steps below are for the new version of Joi.
+
+
+- Validation 
+const Joi = require('@hapi/joi');
+
+const schema =Joi.object({
+    name:Joi.string()
+        .min(6)
+        .required(),
+    email:Joi.string()
+        .min(6)
+        .required()
+        .email(),
+    password:Joi.string()
+        .min(6)
+        .required()
+});
+
+const validation=schema.validate(req.body)
 
