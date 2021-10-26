@@ -1,5 +1,5 @@
 const router=require("express").Router();
-const User=require("../model/User");
+const user=require("../model/user");
 
 
 
@@ -28,22 +28,24 @@ const schema =Joi.object({
 router.post("/register", async(req,res)=>{
     //Lets validate the inputs before making a new user :)
     const validation=schema.validate(req.body)
-    res.send(validation)
 
-    // const newUser=new User({
-    //     name:req.body.name,
-    //     email:req.body.email,
-    //     password:req.body.password
-    // });
+    if(validation.error){
+        return res.status(400).send(validation.error.message)
+    }
+    const newUser=new user({
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password
+    });
 
-    // try{
-    //     const savedUser=await newUser.save(); // This line writes into the database
-    //     res.send(savedUser);
+    try{
+        const savedUser=await newUser.save(); // This line writes into the database
+        res.send(savedUser);
 
-    // }catch(err)
-    // {
-    //     res.status(400).send(err)
-    // }
+    }catch(err)
+    {
+        res.status(400).send(err)
+    }
 
 });
 
