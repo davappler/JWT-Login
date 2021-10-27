@@ -51,4 +51,31 @@ router.post("/register", async(req,res)=>{
 
 });
 
+
+
+//Login
+router.post("/login",async(req,res)=>{
+
+    const validation=loginValidation(req.body) 
+    if(validation.error){
+        return res.status(400).send(validation.error.message)
+    }
+
+// Checking if the user is already in the database.
+    const userExist=await user.findOne({email:req.body.email});
+
+    if(!userExist)
+        return res.status(400).send("Email  is incorrect")
+    
+
+//Password is correct
+    const validPass=await bcrypt.compare(req.body.password,userExist.password)
+    if(!validPass)
+        return res.status(400).send("password is incorrect")
+
+    res.send("Successfully logged in")    
+
+    
+})
+
 module.exports=router;
