@@ -67,3 +67,7 @@ const schema =Joi.object({
 
 const validation=schema.validate(req.body)
 
+
+
+- run => npm install bcryptjs
+       This is used for hashing of the passwords
