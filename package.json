@@ -18,6 +18,7 @@
   "homepage": "https://github.com/davibaweja/JWT-Login#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.12"
